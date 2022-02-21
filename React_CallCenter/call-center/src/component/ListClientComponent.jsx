@@ -9,6 +9,7 @@ class ListClientComponent extends Component {
         }
         this.addClient = this.addClient.bind(this);
         this.updateClient = this.updateClient.bind(this);
+        this.deleteClient = this.deleteClient.bind(this)
     }
         addClient(){
             this.props.history.push('/add-client/-1'); 
@@ -16,6 +17,14 @@ class ListClientComponent extends Component {
 
         updateClient(id){
             this.props.history.push(`/add-client/${id}`);
+        }
+
+        deleteClient(id){
+            this.setState({clients: this.state.clients.filter(client => client.id != id)});
+        }
+
+        viewClient(id){
+            this.props.history.push(`/view-client/${id}`);
         }
     
     
@@ -30,8 +39,8 @@ class ListClientComponent extends Component {
             <div className='table-div'>
                 <h2 className='text-center'>Clients list</h2>
                 <div className='row'>
-                    <div className='col-12 pb-3'>
-                        <button className='btn btn-primary width-2' onClick={this.addClient}>Add Client</button>
+                    <div className='col-2 pb-3'>
+                        <button className='btn btn-primary w-100' onClick={this.addClient}>Add Client</button>
                     </div>
                 </div>
                 <div className='row '>
@@ -62,7 +71,9 @@ class ListClientComponent extends Component {
                                         <td>{client.city}</td>
                                         <td>{client.startDateTime}</td>
                                         <td>
-                                            <button onClick={() => this.updateClient(client.id)} className='btn btn-warning'>Update</button>
+                                            <button onClick={() => this.updateClient(client.id)} className='btn btn-danger mx-1 my-1'>✎</button>
+                                            <button onClick={() => this.deleteClient(client.id)} className='btn btn-dark mx-1 my-1'>🗑</button>
+                                            <button onClick={() => this.viewClient(client.id)} className='btn btn-success mx-1 my-1'>👁</button>
                                         </td>
                                     </tr>
                                 )
