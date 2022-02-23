@@ -10,6 +10,7 @@ class ListClientComponent extends Component {
         this.addClient = this.addClient.bind(this);
         this.updateClient = this.updateClient.bind(this);
         this.deleteClient = this.deleteClient.bind(this)
+        this.getSurveys = this.getSurveys.bind(this)
     }
         addClient(){
             this.props.history.push('/add-client/-1'); 
@@ -26,6 +27,12 @@ class ListClientComponent extends Component {
         viewClient(id){
             this.props.history.push(`/view-client/${id}`);
         }
+
+        getSurveys(id){
+            this.props.history.push(`/survey/${id}`)
+        }
+
+
     
     
         componentDidMount(){
@@ -74,6 +81,7 @@ class ListClientComponent extends Component {
                                             <button onClick={() => this.updateClient(client.id)} className='btn btn-danger mx-1 my-1'>✎</button>
                                             <button onClick={() => this.deleteClient(client.id)} className='btn btn-dark mx-1 my-1'>🗑</button>
                                             <button onClick={() => this.viewClient(client.id)} className='btn btn-success mx-1 my-1'>👁</button>
+                                            <button onClick={() => this.getSurveys(client.id)} className='btn btn-warning mx-1 my-1'>📖</button>
                                         </td>
                                     </tr>
                                 )

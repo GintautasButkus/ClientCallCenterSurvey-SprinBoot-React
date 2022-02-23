@@ -6,6 +6,7 @@ import HeaderComponent from './component/HeaderComponent';
 import FooterComponent from './component/FooterComponent';
 import CreateClientComponent from './component/CreateClientComponent';
 import ViewClientComponent from './component/ViewClientComponent';
+import ListSurveyComponent from './component/ListSurveyComponent';
 // import DeleteClientComponent from './component/DeleteClientComponent';
 // import UpdateClientComponent from './component/UpdateClientComponent';
 
@@ -21,6 +22,7 @@ function App() {
                   <Route path="/add-client/:id" component = {CreateClientComponent}></Route>
                   <Route path="/delete-client/:id" component={ListClientComponent}></Route>
                   <Route path="/view-client/:id" component={ViewClientComponent}></Route>
+                  <Route path="/survey/:id" component={ListSurveyComponent}></Route>
                   {/* <Route path="/view-client/:id" component={ViewClientComponent}</Route> */}
                 </Switch> 
               </div>
